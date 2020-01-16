@@ -1,0 +1,103 @@
+h1 {
+    text-align: center;
+    margin-top: 0px;
+    margin: 0;
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: -15px;
+}
+
+h2 {
+    font-size: 25px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid #eee;
+    float: left;
+}
+
+p {
+    text-align: center;
+}
+
+.jumbotron {
+    background-color: #FBFCFD;
+    margin-top: -50px;
+    
+}
+
+.row {
+    padding: 10px;
+}
+
+.container-fluid {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.card {
+    border: 2px dashed #ccc;
+    padding: 30px;
+    width: 100%;
+}
+
+.btn {
+    border-radius: 40px;
+    width: 30%;
+    height: 13%;    
+    font-size: larger;
+}
+
+.btn-danger {
+    float: left;
+    margin-left: 20px;
+}
+
+.btn-secondary {
+    float: right;
+    margin-right: 20px;
+    background-color: #ccc;
+    border: none;
+}
+
+@media screen and (max-width: 990px){
+    .card {
+        width: 100%;
+    }
+   
+}
+
+@media screen and (max-width: 740px){
+    .btn {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 590px){
+    .btn {
+        padding: 0;
+    }
+    .jumbotron {
+        padding-top: 100px;
+    }
+    }
+}
+
+@media screen and (max-width: 530px){
+    .btn {
+        font-size: medium;
+    }
+    .btn-danger {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 495px){
+    .btn {
+        font-size: small;
+    }
+}
