@@ -1,102 +1,64 @@
-// password input characters, in array form
-var special = ["!", "?", "&", "#", "@", "*", "_", "-", "."];
-var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var range = ["8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58"];
+// one object with many variables (arrays)
+const characterTypes = {
+    special: ["!", "?", "&", "#", "@", "*", "_", "-", "."],
+    numeric: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    lowercase: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+    uppercase: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+    range: ["8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58"]
+};
+      // linked to HTML
+const lowercaseIn = document.getElementById("lowercase");
+const uppercaseIn = document.getElementById("uppercase");
+const numericIn = document.getElementById("numeric");
+const specialIn = document.getElementById("special");
 
-// concats all the given arrays
-var allTypes = special.concat(numeric, lowercase, uppercase, range);
-
-// random number generators
-var genSpecial = (Math.floor(Math.random() * special.length)); 
-var genNumeric = (Math.floor(Math.random() * numeric.length));
-var genLowercase = (Math.floor(Math.random() * lowercase.length));
-var genUppercase = (Math.floor(Math.random() * uppercase.length));
-var genRange = (Math.floor(Math.random() * range.length));
-
-// range of numbers
-var min = 8;
-var max = 128;
-
-console.log(allTypes);
+const generate = document.getElementById("generateBtn");
 
 
-function GenButton(){
-    document.getElementById.toString("generateBtn") = "allTypes";
-}
-
-function password(){
-    document.addEventListener("select", button);
-    (characterTypes(Math.floor(Math.random)));
-}
-
-for (var i = 0; i < allTypes.length; i++) {
-    var element = allTypes[i];
-    
-}
-
-
-function GenButton(){
-    document.getElementById.toString("generateBtn") = "allTypes";
-}
-
-function password(){
-    document.addEventListener("select", button);
-    (characterTypes(Math.floor(Math.random)));
-}
-
-var number = (Math.random)() * (+max - +min) + +min;
-    document.write("Your password is: " + number);
-
+// all of these generate a random number from the array they're calling
+const genSpecial = (Math.floor(Math.random() * special.length));
+const genNumeric = (Math.floor(Math.random() * numeric.length));
+const genLowercase = (Math.floor(Math.random() * lowercase.length));
+const genUppercase = (Math.floor(Math.random() * uppercase.length));
 
 
 console.log(genSpecial);
 console.log(genNumeric);
 console.log(genLowercase);
 console.log(genUppercase);
-console.log(genRange);
-
-
-
-
-
-
-
-
 
 
 // random number generators
-/* function genSpecial(){
+function gSpecial(){
     (Math.floor(Math.random() * special.length));
 }
-function genNumeric(){
+function gNumeric(){
    (Math.floor(Math.random() * special.length));
 }
 
-function genLowercase(){
+function gLowercase(){
     (Math.floor(Math.random() * special.length));
 }
-function genUppercase(){
+function gUppercase(){
     (Math.floor(Math.random() * special.length));
 }
-function genRange(){
+function gRange(){
     (Math.floor(Math.random() * special.length));
 }
 
 function password(){
-    body.addEventListener("click", button,)
+    generateBtn.addEventListener("submit", button,)
         (characterTypes(Math.floor(Math.random)));
-}*/
+}
 
-// switch statement
+/* 
+----- Notes to Self -----
 
+2 for loops?
+need error message when character type isn't selected or number 
+isn't between 8-128
 
-/*
-2 for loops
-need error message when character type isn't selected, 
-or number isn't between 8-128
-
+use:
 math.random
 math.floor
 .addeventlistener
