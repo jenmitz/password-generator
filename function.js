@@ -56,7 +56,8 @@ function password(){
 
 2 for loops?
 need error message when character type isn't selected or number 
-isn't between 8-128
+isn't between 8-128 [range is currently 8-58 until i figure out how 
+to do it more effectively. perhaps character codes.]
 
 use:
 math.random
