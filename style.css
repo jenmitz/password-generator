@@ -1,103 +1,82 @@
 h1 {
-    text-align: center;
-    margin-top: 0px;
-    margin: 0;
-    font-size: 30px;
-    margin-top: 0px;
-    margin-bottom: -15px;
+	font-size: 30px;
+	margin: 0;
+	margin-bottom: -15px;
+	margin-top: 0px;
+	margin-top: 0px;
+	text-align: center;
 }
-
 h2 {
-    font-size: 25px;
-    padding-top: 15px;
-    padding-bottom: 10px;
+	font-size: 25px;
+	padding-bottom: 10px;
+	padding-top: 15px;
 }
-
-hr {
-    width: 100%;
-    border: 1px solid #eee;
-    float: left;
+h4 {
+	text-align: center;
 }
-
 p {
-    text-align: center;
+	text-align: left;
 }
 
-.jumbotron {
-    background-color: #FBFCFD;
-    margin-top: -50px;
-    
-}
-
-.row {
-    padding: 10px;
-}
-
-.container-fluid {
-    padding: 20px;
+output {
     background-color: #fff;
-    border-radius: 5px;
-}
-
-.card {
-    border: 2px dashed #ccc;
-    padding: 30px;
-    width: 100%;
-}
-
-.btn {
+    border: 2px solid #17A2B8;
+    padding: 10px;
     border-radius: 40px;
-    width: 30%;
-    height: 13%;    
-    font-size: larger;
+    text-align: center;
+    width: 100%;
+    color: #ccc;
 }
-
-.btn-danger {
-    float: left;
-    margin-left: 20px;
+.jumbotron {
+	background-color: #eee;
+	margin-top: -50px;
 }
-
-.btn-secondary {
-    float: right;
-    margin-right: 20px;
-    background-color: #ccc;
-    border: none;
+.row {
+	padding: 10px;
 }
-
-@media screen and (max-width: 990px){
-    .card {
-        width: 100%;
-    }
-   
+.container-fluid {
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 20px;
 }
-
-@media screen and (max-width: 740px){
-    .btn {
-        width: 40%;
-    }
+.card {
+	border: 3px solid #17A2B8;
+	padding: 30px;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
 }
-
-@media screen and (max-width: 590px){
-    .btn {
-        padding: 0;
-    }
-    .jumbotron {
-        padding-top: 100px;
-    }
-    }
+.btn {
+	border-radius: 40px;
+	font-size: larger;
+	height: 10%;
+	margin-bottom: 30px;
+	width: 30%;
 }
-
-@media screen and (max-width: 530px){
-    .btn {
-        font-size: medium;
-    }
-    .btn-danger {
-        margin-left: 0;
-    }
+.btn-info {
+	float: left;
+	margin-left: 20px;
 }
-
-@media screen and (max-width: 495px){
-    .btn {
-        font-size: small;
-    }
+.btn-outline-info {
+	border: 1px solid #17A2B8;
+	float: right;
+	margin-right: 20px;
+}
+@media screen and (max-width: 990px) {
+	.card {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 740px) {
+	.btn {
+		width: 40%;
+	}
+}
+@media screen and (max-width: 590px) {
+	.btn {
+		padding-bottom: 10px;
+	}
+	.jumbotron {
+		padding-top: 100px;
+	}
 }
