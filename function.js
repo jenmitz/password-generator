@@ -58,7 +58,6 @@ function generatePassword() {
         console.log("no! bad number!");
     };
 
-
     // see if at least one box is checked / error if no character types are checked
     if (
         !numericBoxChecked
@@ -68,111 +67,56 @@ function generatePassword() {
         ) {
         console.log("check a goddamn box you heathen")
     } else {
-        console.log("at least 1 box checked");
+        console.log("at least 1 box is checked");
     };
-
-
-
-
-
-    // empty array that will store which boxes are checked
-    var boxesCheckedArray = [];
-
-    // if the box is checked, pull a random value from array
-    if (document.getElementById("special").checked) {
-        boxesCheckedArray.push("special")
-        var specialCharacters = ["!", "?", "&", "#", "@", "*", "_", "-", "."]; // 9 characters
-        var specialRandom = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-        console.log("special checked")
-        console.log(specialRandom);
-    } else {
-        console.log("special not checked")
-    };
-    
-    
-    if (document.getElementById("numeric").checked) {
-        boxesCheckedArray.push("numeric")
-        var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; // 10 characters
-        var numericRandom = numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-        console.log("numeric checked")
-        console.log(numericRandom);
-    } else {
-        console.log("numeric not checked");
-    };
-    
-    
-    if (document.getElementById("lowercase").checked) {
-        boxesCheckedArray.push("lowercase")
-        var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // 26 characters
-        var lowercaseRandom = lowercaseCharacters[Math.floor(Math.random() * lowercaseCharacters.length)];
-        console.log("lowercase checked");
-        console.log(lowercaseRandom);
-    } else {
-        console.log("lowercase not checked");
-    };
-    
-    
-    if (document.getElementById("uppercase").checked) {
-        boxesCheckedArray.push("uppercase")
-        var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; // 26 characters
-        var uppercaseRandom = uppercaseCharacters[Math.floor(Math.random() * uppercaseCharacters.length)];
-        console.log("uppercase checked");
-        console.log(uppercaseRandom);
-    } else {
-        console.log("uppercase not checked");
-    };
-
-    console.log(boxesCheckedArray);
-    
-
-function passwordBuilder() {
-
-        /* 
-        var lowerAlphabet = 65; // capital A
-        var upperAlphabet = 90; // capital Z
-        var lowerSpecial = 33; // ! 
-        var upperSpecial = 43; // +
-        var lowerNumeric = 48; // 0
-        var upperNumeric = 57; // 9
-        */
-    
-    var numericBoxChecked = document.getElementById("numeric").checked;
-    var lowercaseBoxChecked = document.getElementById("lowercase").checked;
-    var uppercaseBoxChecked = document.getElementById("uppercase").checked;
-    var specialBoxChecked = document.getElementById("special").checked;
-
-    var alphabet = () => Array.from({length: 27}, () => Math.floor(Math.random() * (90 - 65) + 65));
-    var special = () => Array.from({length: 11}, () => Math.floor(Math.random() * (43 - 33) + 33));
-    var numeric = () => Array.from({length: 11}, () => Math.floor(Math.random() * (57 - 48) + 48));
-
+   
+    // input value
     var input = document.getElementById("length").value;
-    var values = "";
-    
-    for (i = 0; i < input; i++)
-        if (numericBoxChecked) {
-            numeric();
-        };
-        if (lowercaseBoxChecked) {
-            alphabet(); // to lower case
-        };
-        if (uppercaseBoxChecked) {
-            alphabet();
-        };
-        if (specialBoxChecked) {
-            special();
-        };
-    console.log(i);
+    // random values from each array using ASCII 
+    var letterUppercase = Array.from({length: input}, () => Math.floor(Math.random() * (90 - 65) + 65));
+    var letterLowercase = Array.from({length: input}, () => Math.floor(Math.random() * (122 - 97) + 97));
+    var special = Array.from({length: input}, () => Math.floor(Math.random() * (43 - 33) + 33));
+    var numeric = Array.from({length: input}, () => Math.floor(Math.random() * (57 - 48) + 48));
+    //empty array for next step
+    var values = [];
+    // if a box is checked, add it to array 'values'
+    if (numericBoxChecked) {
+        values.push(numeric);
+        console.log(numeric);
     };
-        
-    passwordBuilder();
+    if (lowercaseBoxChecked) {
+        values.push(letterLowercase);
+        console.log(letterLowercase);
+    };
+    if (uppercaseBoxChecked) {
+        values.push(letterUppercase);
+        console.log(letterUppercase);
+    };
+    if (specialBoxChecked) {
+        values.push(special);
+        console.log(special);
+    };
+    // randomize from 'values' array
+    var result = Array.from({length: values}, () => Math.floor(Math.random()));
+    
+    console.log(result);
+    console.log(values);
 };
-
-
 generatePassword(); 
-
 
 //////////////////////////////////// RANDOM NOTES / DUMP ///////////////////////////////////////
 
-// var result = document.getElementById("password");
 // var range = ("8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58");
+// var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; // 26 characters
+// var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; // 10 characters
+// var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // 26 characters
+// var specialCharacters = ["!", "?", "&", "#", "@", "*", "_", "-", "."]; // 9 characters
 
+/* 
+ var lowerAlphabet = 65; // capital A
+ var upperAlphabet = 90; // capital Z
+ var lowerSpecial = 33; // ! 
+ var upperSpecial = 43; // +
+ var lowerNumeric = 48; // 0
+ var upperNumeric = 57; // 9
+*/
