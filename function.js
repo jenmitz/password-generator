@@ -35,108 +35,140 @@ IOCE
 */
 
 
-// listen for a click on generateBtn - run function generatePW [working]
-function whenClicked() {
-    document.getElementById("generateBtn").addEventListener("click", generatePW);
 
-    // main function - run when generateBtn is clicked [working]
-    function generatePW() {
 
-        // get a random value from whatever box is checked [working]
-        function generateChecked() {
-            // empty array that will store which boxes are checked [working]
-            var boxesArray = [];
-            
-            // if box is checked, pull a random value from array
-            if (document.getElementById("special").checked) {
-                boxesArray.push("special")
-                var special = ["!", "?", "&", "#", "@", "*", "_", "-", "."]; // 9 characters
-                var specialNum = special[Math.floor(Math.random() * special.length)];
-                console.log("special checked")
-                console.log(specialNum);
-            } else {
-                console.log("special no")
-            };
-            
-            
-            if (document.getElementById("numeric").checked) {
-                boxesArray.push("numeric")
-                var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; // 10 characters
-                var numericNum = numeric[Math.floor(Math.random() * numeric.length)];
-                console.log("numeric checked")
-                console.log(numericNum);
-            } else {
-                console.log("numeric no");
-            };
-            
-            
-            if (document.getElementById("lowercase").checked) {
-                boxesArray.push("lowercase")
-                var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // 26 characters
-                var lowercaseNum = lowercase[Math.floor(Math.random() * lowercase.length)];
-                console.log("lowercase checked");
-                console.log(lowercaseNum);
-            } else {
-                console.log("lowercase no");
-            };
-            
-            
-            if (document.getElementById("uppercase").checked) {
-                boxesArray.push("uppercase")
-                var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; // 26 characters
-                var uppercaseNum = uppercase[Math.floor(Math.random() * uppercase.length)];
-                console.log("uppercase checked")
-                console.log(uppercaseNum);
-            } else {
-                console.log("uppercase no")
-            };
-            console.log(boxesArray);
+
+// event listener to generate password
+document.getElementById("generateBtn").addEventListener("click", generatePassword);
+
+// generate
+function generatePassword() {
+
+    // variables
+    var characterLength = document.getElementById("length").value;
+    var numericBoxChecked = document.getElementById("numeric").checked;
+    var lowercaseBoxChecked = document.getElementById("lowercase").checked;
+    var uppercaseBoxChecked = document.getElementById("uppercase").checked;
+    var specialBoxChecked = document.getElementById("special").checked;
+    
+    // check input length / error for invalid number
+    if (characterLength >= 8 && characterLength <= 58) {
+        console.log("nice, you entered a good number")
+    } else {
+        console.log("no! bad number!");
+    };
+
+
+    // see if at least one box is checked / error if no character types are checked
+    if (
+        !numericBoxChecked
+        && !lowercaseBoxChecked
+        && !uppercaseBoxChecked
+        && !specialBoxChecked
+        ) {
+        console.log("check a goddamn box you heathen")
+    } else {
+        console.log("at least 1 box checked");
+    };
+
+
+
+
+
+    // empty array that will store which boxes are checked
+    var boxesCheckedArray = [];
+
+    // if the box is checked, pull a random value from array
+    if (document.getElementById("special").checked) {
+        boxesCheckedArray.push("special")
+        var specialCharacters = ["!", "?", "&", "#", "@", "*", "_", "-", "."]; // 9 characters
+        var specialRandom = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log("special checked")
+        console.log(specialRandom);
+    } else {
+        console.log("special not checked")
+    };
+    
+    
+    if (document.getElementById("numeric").checked) {
+        boxesCheckedArray.push("numeric")
+        var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; // 10 characters
+        var numericRandom = numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+        console.log("numeric checked")
+        console.log(numericRandom);
+    } else {
+        console.log("numeric not checked");
+    };
+    
+    
+    if (document.getElementById("lowercase").checked) {
+        boxesCheckedArray.push("lowercase")
+        var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // 26 characters
+        var lowercaseRandom = lowercaseCharacters[Math.floor(Math.random() * lowercaseCharacters.length)];
+        console.log("lowercase checked");
+        console.log(lowercaseRandom);
+    } else {
+        console.log("lowercase not checked");
+    };
+    
+    
+    if (document.getElementById("uppercase").checked) {
+        boxesCheckedArray.push("uppercase")
+        var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; // 26 characters
+        var uppercaseRandom = uppercaseCharacters[Math.floor(Math.random() * uppercaseCharacters.length)];
+        console.log("uppercase checked");
+        console.log(uppercaseRandom);
+    } else {
+        console.log("uppercase not checked");
+    };
+
+    console.log(boxesCheckedArray);
+    
+
+function passwordBuilder() {
+
+        /* 
+        var lowerAlphabet = 65; // capital A
+        var upperAlphabet = 90; // capital Z
+        var lowerSpecial = 33; // ! 
+        var upperSpecial = 43; // +
+        var lowerNumeric = 48; // 0
+        var upperNumeric = 57; // 9
+        */
+    
+    var numericBoxChecked = document.getElementById("numeric").checked;
+    var lowercaseBoxChecked = document.getElementById("lowercase").checked;
+    var uppercaseBoxChecked = document.getElementById("uppercase").checked;
+    var specialBoxChecked = document.getElementById("special").checked;
+
+    var alphabet = () => Array.from({length: 27}, () => Math.floor(Math.random() * (90 - 65) + 65));
+    var special = () => Array.from({length: 11}, () => Math.floor(Math.random() * (43 - 33) + 33));
+    var numeric = () => Array.from({length: 11}, () => Math.floor(Math.random() * (57 - 48) + 48));
+
+    var input = document.getElementById("length").value;
+    var values = "";
+    
+    for (i = 0; i < input; i++)
+        if (numericBoxChecked) {
+            numeric();
         };
-        generateChecked();
-
-        // errors to give if neccessary [working]
-        function error() {
-
-            // error for incorrect length input [working]
-            function invalidLength() {
-                var charLength = document.getElementById("length").value;
-                if (charLength >= 8 && charLength <= 58) {
-                    console.log("nice, you entered a good number")
-                } else {
-                    console.log("no! bad number!");
-                };
-            };
-            invalidLength();
-
-            // error for no character type selected [working]
-            function notChecked() {
-                var numYes = document.getElementById("numeric").checked;
-                var lowerYes = document.getElementById("lowercase").checked;
-                var upperYes = document.getElementById("uppercase").checked;
-                var specialYes = document.getElementById("special").checked;
-
-                if (
-                    !numYes
-                    && !lowerYes
-                    && !upperYes
-                    && !specialYes
-                    ) {
-                    console.log("check a goddamn box you heathen")
-                } else {
-                    console.log("box checked");
-                };
-            };
-            notChecked();
-
+        if (lowercaseBoxChecked) {
+            alphabet(); // to lower case
         };
-        error();
-
-    };   
-    generatePW(); 
-
+        if (uppercaseBoxChecked) {
+            alphabet();
+        };
+        if (specialBoxChecked) {
+            special();
+        };
+    console.log(i);
+    };
+        
+    passwordBuilder();
 };
-whenClicked();
 
+
+generatePassword(); 
 
 
 //////////////////////////////////// RANDOM NOTES / DUMP ///////////////////////////////////////
