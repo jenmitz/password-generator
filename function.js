@@ -34,10 +34,6 @@ IOCE
 
 */
 
-
-
-
-
 // event listener to generate password
 document.getElementById("generateBtn").addEventListener("click", generatePassword);
 
@@ -59,12 +55,7 @@ function generatePassword() {
     };
 
     // see if at least one box is checked / error if no character types are checked
-    if (
-        !numericBoxChecked
-        && !lowercaseBoxChecked
-        && !uppercaseBoxChecked
-        && !specialBoxChecked
-        ) {
+    if (!numericBoxChecked && !lowercaseBoxChecked && !uppercaseBoxChecked && !specialBoxChecked) {
         console.log("check a goddamn box you heathen")
     } else {
         console.log("at least 1 box is checked");
@@ -72,13 +63,18 @@ function generatePassword() {
    
     // input value
     var input = document.getElementById("length").value;
-    // random values from each array using ASCII 
-    var letterUppercase = Array.from({length: input}, () => Math.floor(Math.random() * (90 - 65) + 65));
-    var letterLowercase = Array.from({length: input}, () => Math.floor(Math.random() * (122 - 97) + 97));
-    var special = Array.from({length: input}, () => Math.floor(Math.random() * (43 - 33) + 33));
-    var numeric = Array.from({length: input}, () => Math.floor(Math.random() * (57 - 48) + 48));
-    //empty array for next step
+
+    // random values from each array using ASCII codes (how many depends on input)
+    var letterUppercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65)));
+    var letterLowercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97)));
+    var special = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (43 - 33) + 33)));
+    var numeric = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48)));
+
+    //empty array to be dynamically added to
     var values = [];
+    
+    ///////// HOW DO I MAKE THIS MORE DRY? /////////
+    
     // if a box is checked, add it to array 'values'
     if (numericBoxChecked) {
         values.push(numeric);
@@ -96,27 +92,18 @@ function generatePassword() {
         values.push(special);
         console.log(special);
     };
-    // randomize from 'values' array
-    var result = Array.from({length: values}, () => Math.floor(Math.random()));
-    
-    console.log(result);
-    console.log(values);
+
+    console.log("values array has the following values: " + values);
+
 };
 generatePassword(); 
 
 //////////////////////////////////// RANDOM NOTES / DUMP ///////////////////////////////////////
+//Math.floor(Math.random() * (57 - 48) + 48));
+
 
 // var range = ("8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58");
 // var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; // 26 characters
 // var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; // 10 characters
 // var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // 26 characters
 // var specialCharacters = ["!", "?", "&", "#", "@", "*", "_", "-", "."]; // 9 characters
-
-/* 
- var lowerAlphabet = 65; // capital A
- var upperAlphabet = 90; // capital Z
- var lowerSpecial = 33; // ! 
- var upperSpecial = 43; // +
- var lowerNumeric = 48; // 0
- var upperNumeric = 57; // 9
-*/
