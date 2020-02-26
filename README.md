@@ -3,8 +3,7 @@
 
 
 ## Purpose
-This is a password generator that generates a random password depending on the user's input. It is to provide the user with a strong and secure password. It allows the user the select the following: character length (required), uppercase, lowercase, special characters, and numbers.
+This is a password generator that generates a random password depending on the users input. It allows the user the select their desired character length (required) from 8 - 58 and choose their character type(s) (at least one required) from uppercase letters, lowercase letters, numbers, and special characters. It provides the user with a strong and secure password as a result.
 
 ## Progress/Current Function 
-I have not finished the actual functionality of it yet. The CSS and HTML are finished, however. It is responsive and the graphics are clean, and it adapts well to multiple screen sizes. The .js file currently has some non-working (work in progress) functions and many variables (const). Once I better understand the syntax and logic, I'll come back and update this so it actually works. 
-
+I have not finished the full functionality of this yet, but it is coming along very well. Beyond the HTML and CSS being complete, the JavaScript correctly registers user input and generates random characters based on that input. It returns no errors, console logs all relevant information, and is relatively dry. The only things left to finish are getting requested amount of randomized values from the final (dynamically-created) array and populating the HTML with the result of said randomization.
