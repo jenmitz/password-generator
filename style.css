@@ -27,6 +27,9 @@ output {
     width: 100%;
     color: #ccc;
 }
+#password {
+    color: black;
+}
 .jumbotron {
 	background-color: #eee;
 	margin-top: -50px;
