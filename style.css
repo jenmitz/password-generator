@@ -3,7 +3,6 @@ h1 {
 	margin: 0;
 	margin-bottom: -15px;
 	margin-top: 0px;
-	margin-top: 0px;
 	text-align: center;
 }
 h2 {
@@ -17,18 +16,17 @@ h4 {
 p {
 	text-align: left;
 }
-
 output {
-    background-color: #fff;
-    border: 2px solid #17A2B8;
-    padding: 10px;
-    border-radius: 40px;
-    text-align: center;
-    width: 100%;
-    color: #ccc;
+	background-color: #fff;
+	border: 2px solid #17A2B8;
+	border-radius: 40px;
+	color: #ccc;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
 }
 #password {
-    color: black;
+	color: black;
 }
 .jumbotron {
 	background-color: #eee;
@@ -43,11 +41,11 @@ output {
 	padding: 20px;
 }
 .card {
+	background-color: #eee;
 	border: 3px solid #17A2B8;
+	border-radius: 10px;
 	padding: 30px;
-    width: 100%;
-    background-color: #eee;
-    border-radius: 10px;
+	width: 100%;
 }
 .btn {
 	border-radius: 40px;
@@ -58,13 +56,18 @@ output {
 }
 .btn-info {
 	float: left;
-	margin-left: 20px;
+	margin-left: 25px;
 }
-.btn-outline-info {
+#refreshBtn {
 	border: 1px solid #17A2B8;
 	float: right;
-	margin-right: 20px;
+    margin-right: 20px;
+    color: #17A2B8;
+    background-color: #fff;
 }
+
+
+
 @media screen and (max-width: 990px) {
 	.card {
 		width: 100%;
