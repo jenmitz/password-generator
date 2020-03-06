@@ -10,11 +10,10 @@ IOCE
 
 > Needed functionality:
 - Randomize/generate final password by randomizing the "values" array
-- Get rid of commas in password result [working-ish??]
-- Stop the function, don't generate a password if any inputs are incorrect
+- Stop the function (don't generate a password) if any inputs are incorrect
 
 > Optional/Bonus functionality:
-- Clipboard
+- Copy to clipboard
 
 */
 
@@ -31,7 +30,10 @@ function generatePassword() {
     const uppercaseBoxChecked = document.getElementById("uppercase").checked;
     const specialBoxChecked = document.getElementById("special").checked;
     
-    // check input length / error for invalid number
+    
+    // error handling
+
+    // error for invalid number input
     if (characterLength >= 8 && characterLength <= 58) {
         console.log("nice, you entered a good number")
     } else {
@@ -40,7 +42,7 @@ function generatePassword() {
         // stop entire function here if error?
     };
 
-    // check if at least one box is selected / error if no character types are selected
+    // error if no character types are selected
     if (!numericBoxChecked && !lowercaseBoxChecked && !uppercaseBoxChecked && !specialBoxChecked) {
         console.log("check a goddamn box you heathen");
         // alert("Please select at least one character type.");
@@ -53,15 +55,19 @@ function generatePassword() {
     const input = document.getElementById("length").value;
 
     // random values from each array using ASCII codes (how many values generated depends on user input)
-    var letterUppercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65)));
-    var letterLowercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97)));
-    var special = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (43 - 33) + 33)));
-    var numeric = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48)));
+    let letterUppercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65)));
+    let letterLowercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97)));
+    let special = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (43 - 33) + 33)));
+    let numeric = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48)));
 
     //empty array to be filled with randomized values of checked boxes
-    var values = [];
+    let values = [];
     
-    // if a box is checked, add randomized values to array "values" / get rid of commas in each array
+
+    // can following conditionals drier?
+    // currently, each of these conditionals generates input amount, meaning that if 2 boxes are checked and input is 10, there will be 20 characters
+
+    // if a box is checked, add randomized values to array "values" & get rid of commas in between strings
     if (numericBoxChecked) {
         let noCommasNumeric = numeric.join("");
         values.push(numeric);
@@ -90,24 +96,31 @@ function generatePassword() {
     console.log(values);
 
     
-// for each array within "values," concat them together and then randomly pull input amount of characters out?
+// Randomize/generate final password by randomizing the info in "values" array
 
 
-/*  let array1 = values[0];
+// randomizing "values" array doesn't work b/c the value sets are from their own separate arrays
+// brainstorming
+    // concat arrays in "values" together, then randomly pull input amount of characters out
+    // randomly pick index[x] of each array until i get the amount of values that matches input
+    // shuffle those random values to get the final PW
+ 
+// these indexes correspond to each array (checked box) in "values", but i need to have the appropriate amount of indexes for the amount of boxes checked
+    // use conditionals? something else?
+/*  
+    let array1 = values[0];
     let array2 = values[1];
     let array3 = values[2];
-    let array4 = values[3]; */
+    let array4 = values[3]; 
 
-    // let finalArray = values.concat();
-
-    // console.log(finalArray);
-
-
+    let finalArray = values.concat();
+    console.log(finalArray);
+*/
 
 };
 
 // refreshes page on button click
-let refreshBtn = document.getElementById("refreshBtn").addEventListener("click", refreshPage);
+const refreshBtn = document.getElementById("refreshBtn").addEventListener("click", refreshPage);
 
 function refreshPage() {
     if(confirm("Are you sure you'd like to refresh? You will lose your current password.")) {
