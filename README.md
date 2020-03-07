@@ -1,6 +1,3 @@
-/github/last-commit/:jenmitz/:password-generator
-/eclipse-marketplace/last-update/:password-generator
-
 # password-generator
 ![pw-generator-sc](https://user-images.githubusercontent.com/49658803/76130883-33c38580-5fc1-11ea-8180-de6c0d18f1bf.png)
 
