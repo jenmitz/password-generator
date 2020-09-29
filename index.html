@@ -11,9 +11,7 @@
 
 <body>
     <div class="jumbotron">
-        <h1>Password Generator</h1>
-        <br>
-        <br>
+       
         <div class="container-fluid shadow">
             <div class="row">
                 <div class="col-lg-10">
@@ -25,26 +23,22 @@
                                 <br>
                                 <p>1. Decide how long you want your password to be. You may choose a number between 8 and 58.                               
                                     <br>
-                                    <input type="text" id="length" placeholder="number" required></input>
+                                    <input type="text" id="length" placeholder="number" required>
                                 </p>
                                 <br>
                                 <p>2. Choose your desired character type. You must pick at least one option.
                                     <br>
-                                    <input type="checkbox" id="special">
-                                        Special (! " # $ % & '( ) * +)
-                                    </input>
+                                    <input type="checkbox" class="checkbox" id="special">
+                                        Special (! " # $ % & '( ) * +)                                
                                     <br>
-                                    <input type="checkbox" id="numeric">
-                                        Numeric
-                                    </input>
+                                    <input type="checkbox" class="checkbox" id="number">
+                                        Number                                   
                                     <br>
-                                    <input type="checkbox" id="lowercase">
-                                        Lowercase
-                                    </input>
+                                    <input type="checkbox" class="checkbox" id="lowercase">
+                                        Lowercase                                    
                                     <br>
-                                    <input type="checkbox" id="uppercase">
-                                        Uppercase
-                                    </input>
+                                    <input type="checkbox" class="checkbox" id="uppercase">
+                                        Uppercase                                    
                                 </p>
                                 <br>
                                 <p>                   
@@ -56,8 +50,9 @@
                         </div>
                     </div>
                     <br>
-                    <button type="button" id="generateBtn" class="btn btn-info">Generate Password</button>
-                    <button type="button" id="refreshBtn" class="btn btn-info">Refresh</button>
+                    <button type="button" id="generateBtn" class="btn">Generate Password</button>
+                    <button type="button" id="refreshBtn" class="btn">Refresh</button>
+                    <button type="button" id="copyBtn" class="btn">Copy to Clipboard</button>
                     <br>
                     <br>
                 </div>

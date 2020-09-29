@@ -8,14 +8,12 @@ IOCE
 
 /////////////////////////////////////////////////
 
-> Needed functionality:
-- Randomize/generate final password by randomizing the "values" array
-- Stop the function (don't generate a password) if any inputs are incorrect
-
-> Optional/Bonus functionality:
-- Copy to clipboard
+Optional/Bonus functionality:
+    Copy to clipboard
 
 */
+
+
 
 // event listener to run function
 document.getElementById("generateBtn").addEventListener("click", generatePassword);
@@ -23,114 +21,119 @@ document.getElementById("generateBtn").addEventListener("click", generatePasswor
 // generate password
 function generatePassword() {
 
-    // variables for checked boxes
-    const characterLength = document.getElementById("length").value;
-    const numericBoxChecked = document.getElementById("numeric").checked;
-    const lowercaseBoxChecked = document.getElementById("lowercase").checked;
-    const uppercaseBoxChecked = document.getElementById("uppercase").checked;
-    const specialBoxChecked = document.getElementById("special").checked;
-    
-    
+    // variables for length input and checked boxes
+    const inputLength = document.getElementById("length").value;
+
+    let arr = [
+        numberBoxChecked = document.getElementById("number").checked,
+        lowercaseBoxChecked = document.getElementById("lowercase").checked,
+        uppercaseBoxChecked = document.getElementById("uppercase").checked,
+        specialBoxChecked = document.getElementById("special").checked
+    ];
+
     // error handling
 
     // error for invalid number input
-    if (characterLength >= 8 && characterLength <= 58) {
-        console.log("nice, you entered a good number")
+    if (inputLength >= 8 && inputLength <= 58) {
+        console.log("Correct length entered.");
     } else {
-        console.log("no! bad number!");
-        // alert("Please enter a number from 8 - 58.");
-        // stop entire function here if error?
+        alert("Please enter a number from 8 - 58.");
+        return;
     };
 
     // error if no character types are selected
-    if (!numericBoxChecked && !lowercaseBoxChecked && !uppercaseBoxChecked && !specialBoxChecked) {
-        console.log("check a goddamn box you heathen");
-        // alert("Please select at least one character type.");
-        // stop entire function here if error?
-    } else {
-        console.log("at least 1 box is checked");
+    if (!numberBoxChecked && !lowercaseBoxChecked && !uppercaseBoxChecked && !specialBoxChecked) {
+        alert("Please select at least one character type.");
+        return;
     };
-   
-    // input value
-    const input = document.getElementById("length").value;
 
-    // random values from each array using ASCII codes (how many values generated depends on user input)
-    let letterUppercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65)));
-    let letterLowercase = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97)));
-    let special = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (43 - 33) + 33)));
-    let numeric = Array.from({length: input}, () => String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48)));
 
-    //empty array to be filled with randomized values of checked boxes
+    // ASCII code randomize character functions
+    let number = () => String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48));
+    let letterUppercase = () => String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65));
+    let letterLowercase = () => String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97));
+    let special = () => String.fromCharCode(Math.floor(Math.random() * (43 - 33) + 33));
+
+    // array that holds randomly generated values
     let values = [];
-    
+            
+    // if box is checked, push value "1" to values array - do for length of input
+    for (i = 0; i < inputLength; i++) {
+        if (numberBoxChecked) {
+            values.push(number());
+            document.getElementById("password").append(number());
+        };
+        if (uppercaseBoxChecked) {
+            values.push(letterUppercase());
+            document.getElementById("password").append(letterUppercase());
+        };
+        if (lowercaseBoxChecked) {
+            values.push(letterLowercase());
+            document.getElementById("password").append(letterLowercase());
+        };
+        if (specialBoxChecked) {
+            values.push(special());
+            document.getElementById("password").append(special());
+        };
+    };
 
-    // can following conditionals drier?
-    // currently, each of these conditionals generates input amount, meaning that if 2 boxes are checked and input is 10, there will be 20 characters
-
-    // if a box is checked, add randomized values to array "values" & get rid of commas in between strings
-    if (numericBoxChecked) {
-        let noCommasNumeric = numeric.join("");
-        values.push(numeric);
-        document.getElementById("password").append(noCommasNumeric);
-        console.log(numeric);
-    };
-    if (lowercaseBoxChecked) {
-        let noCommasLower = letterLowercase.join("");
-        values.push(letterLowercase);
-        document.getElementById("password").append(noCommasLower);
-        console.log(letterLowercase);
-    };
-    if (uppercaseBoxChecked) {
-        let noCommasUpper = letterUppercase.join("");
-        values.push(letterUppercase);
-        document.getElementById("password").append(noCommasUpper);
-        console.log(letterUppercase);
-    };
-    if (specialBoxChecked) {
-        let noCommasSpecial = special.join("");
-        values.push(special);
-        document.getElementById("password").append(noCommasSpecial);
-        console.log(special);
-    };
-    
     console.log(values);
+    // check to see how many boxes are checked
+    // if (arr.length === 4) {
+    //     // loop through arr.length until youve reached the correct input length
+    //     console.log("4 boxes");
+    // };
+    // if (arr.length === 3) {
+    //     console.log("3 boxes");
+    // };    
+    // if (arr.length === 2) {
+    //     console.log("2 boxes");
+    // }; 
+    // if (arr.length === 1) {
+    //     console.log("1 box");
+    // };
 
+    // loop through checked boxes until amount is length, add random value 
+
+
+
+    // function scramble() {
+    //     values(numOfBoxesChecked);
+    // };
+
+    // scramble();
+
+    //console.log(values);
+
+
+
+    // final number divided by number of boxes checked?
+    // add one character (if box is checked) for [input] amount of times
+    // each time we loop, we want to add one letter to password and shuffle array values
+    // we want to choose one of the four functions we have 
+//};
+
+
+
+    // refresh page on button click
+    // const refreshBtn = document.getElementById("refreshBtn").addEventListener("click");
+    // if (refreshBtn) {
+    //     if (confirm("Are you sure you'd like to refresh? You will lose your current password.")) {
+    //     window.location.reload();
+    // };
     
-// Randomize/generate final password by randomizing the info in "values" array
-
-
-// randomizing "values" array doesn't work b/c the value sets are from their own separate arrays
-// brainstorming
-    // concat arrays in "values" together, then randomly pull input amount of characters out
-    // randomly pick index[x] of each array until i get the amount of values that matches input
-    // shuffle those random values to get the final PW
- 
-// these indexes correspond to each array (checked box) in "values", but i need to have the appropriate amount of indexes for the amount of boxes checked
-    // use conditionals? something else?
-/*  
-    let array1 = values[0];
-    let array2 = values[1];
-    let array3 = values[2];
-    let array4 = values[3]; 
-
-    let finalArray = values.concat();
-    console.log(finalArray);
-*/
-
-};
-
-// refreshes page on button click
-const refreshBtn = document.getElementById("refreshBtn").addEventListener("click", refreshPage);
-
-function refreshPage() {
-    if(confirm("Are you sure you'd like to refresh? You will lose your current password.")) {
-        window.location.reload();
+    const refreshBtn = document.getElementById("refreshBtn").addEventListener("click", refreshPage);
+    const doubleCheck = confirm("Are you sure you'd like to refresh? You will lose your current password.");
+    
+    function refreshPage() {
+        if (refreshBtn) {
+            doubleCheck
+            if (doubleCheck === true) {
+                window.location.reload();
+            };
+        };
     };
-};
-//////////////////////////////////// RANDOM NOTES / DUMP ///////////////////////////////////////
 
-// var range = ("8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58");
-// var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; // 26 characters
-// var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; // 10 characters
-// var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; // 26 characters
-// var specialCharacters = ["!", "?", "&", "#", "@", "*", "_", "-", "."]; // 9 characters
+
+
+};

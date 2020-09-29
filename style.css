@@ -6,9 +6,11 @@ h1 {
 	text-align: center;
 }
 h2 {
-	font-size: 25px;
+	font-size: 35px;
 	padding-bottom: 10px;
-	padding-top: 15px;
+    padding-top: 15px;
+    text-align: center;
+    color: #E07942;
 }
 h4 {
 	text-align: center;
@@ -16,17 +18,45 @@ h4 {
 p {
 	text-align: left;
 }
-output {
-	background-color: #fff;
-	border: 2px solid #17A2B8;
-	border-radius: 40px;
-	color: #ccc;
-	padding: 10px;
-	text-align: center;
-	width: 100%;
+
+#refreshBtn:hover, #copyBtn:hover, #generateBtn:hover {
+    color: black;
+    background-color: #ffa56e;
 }
+
 #password {
+	background-color: #fff;
+	border: 3px solid #17A2B8;
+	border-radius: 40px;
 	color: black;
+	padding: 25px;
+	text-align: center;
+    width: 100%;
+    height: fit-content;
+}
+#refreshBtn {
+    float: right;
+    margin-right: 20px;
+    height: 4rem;
+    color: #fff;
+    background-color: #E07942;
+}
+#generateBtn {
+    background-color: #E07942;
+    color: #fff;
+    height: 4rem;
+    
+}
+#copyBtn {
+    background-color: #E07942;
+    color: #fff;
+    height: 4rem;
+    margin-right: 20px;
+    margin-left: 45px;
+}
+
+.col-lg-10 {
+    margin: auto;
 }
 .jumbotron {
 	background-color: #eee;
@@ -41,7 +71,7 @@ output {
 	padding: 20px;
 }
 .card {
-	background-color: #eee;
+	background-color: #AEE2EB;
 	border: 3px solid #17A2B8;
 	border-radius: 10px;
 	padding: 30px;
@@ -50,7 +80,6 @@ output {
 .btn {
 	border-radius: 40px;
 	font-size: larger;
-	height: 10%;
 	margin-bottom: 30px;
 	width: 30%;
 }
@@ -58,15 +87,6 @@ output {
 	float: left;
 	margin-left: 25px;
 }
-#refreshBtn {
-	border: 1px solid #17A2B8;
-	float: right;
-    margin-right: 20px;
-    color: #17A2B8;
-    background-color: #fff;
-}
-
-
 
 @media screen and (max-width: 990px) {
 	.card {

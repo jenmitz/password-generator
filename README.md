@@ -1,5 +1,5 @@
 # password-generator
-![PW-generator-screenshot](https://user-images.githubusercontent.com/49658803/72676765-ce83f700-3a49-11ea-9ae7-26b4dbcec57c.png)
+![PW-generator-screenshot](pw-generator-sc "Title")
 
 
 ## Purpose
