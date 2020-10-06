@@ -10,27 +10,32 @@ IOCE
 
 Optional/Bonus functionality:
     Copy to clipboard
+/////////////////////////////////////////////////  
+Need to fix:
+- each value checked is generated one after the other(5n2i8h, etc), instead of randomly distributed (h8799y8dfvff8f, etc)
+- need to get CORRECT length of characters. currently generates the input amount of each character type selected (generates 8 of both special and lower for a total of 1 characters, for example)
 
+- randomly pick indexes from generated array (values) until it reaches the input??
 */
 
-
-
-// event listener to run function
+// event listeners to run functions
 document.getElementById("generateBtn").addEventListener("click", generatePassword);
+// document.getElementById("refreshBtn").addEventListener("click", resetForm);
+// document.getElementById("copyBtn").addEventListener("click", copyPW);
 
 // generate password
 function generatePassword() {
 
     // variables for length input and checked boxes
+    // input
     const inputLength = document.getElementById("length").value;
 
-    let arr = [
+    const arr = [
         numberBoxChecked = document.getElementById("number").checked,
         lowercaseBoxChecked = document.getElementById("lowercase").checked,
         uppercaseBoxChecked = document.getElementById("uppercase").checked,
         specialBoxChecked = document.getElementById("special").checked
     ];
-
     // error handling
 
     // error for invalid number input
@@ -47,12 +52,11 @@ function generatePassword() {
         return;
     };
 
-
     // ASCII code randomize character functions
-    let number = () => String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48));
-    let letterUppercase = () => String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65));
-    let letterLowercase = () => String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97));
-    let special = () => String.fromCharCode(Math.floor(Math.random() * (43 - 33) + 33));
+    const number = () => String.fromCharCode(Math.floor(Math.random() * (57 - 48) + 48));
+    const letterUppercase = () => String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65));
+    const letterLowercase = () => String.fromCharCode(Math.floor(Math.random() * (122 - 97) + 97));
+    const special = () => String.fromCharCode(Math.floor(Math.random() * (43 - 33) + 33));
 
     // array that holds randomly generated values
     let values = [];
@@ -61,35 +65,47 @@ function generatePassword() {
     for (i = 0; i < inputLength; i++) {
         if (numberBoxChecked) {
             values.push(number());
-            document.getElementById("password").append(number());
+            //document.getElementById("password").append(number());
         };
         if (uppercaseBoxChecked) {
             values.push(letterUppercase());
-            document.getElementById("password").append(letterUppercase());
+            //document.getElementById("password").append(letterUppercase());
         };
         if (lowercaseBoxChecked) {
             values.push(letterLowercase());
-            document.getElementById("password").append(letterLowercase());
+            //document.getElementById("password").append(letterLowercase());
         };
         if (specialBoxChecked) {
             values.push(special());
-            document.getElementById("password").append(special());
+            //document.getElementById("password").append(special());
         };
     };
 
+    
+
+    const getRandomIndex = () => {
+        for (i = 0; i < inputLength; i++) {
+            const randomIndex = values[Math.floor(Math.random() * values.length)];
+            console.log(randomIndex);
+            document.getElementById("password").append(randomIndex);
+        };
+        return;
+    }; 
+
+    // length of array produces values until reaches input
+    getRandomIndex();
     console.log(values);
-    // check to see how many boxes are checked
+
+
+    // check to see how many boxes are checked (not working)
     // if (arr.length === 4) {
     //     // loop through arr.length until youve reached the correct input length
     //     console.log("4 boxes");
-    // };
-    // if (arr.length === 3) {
+    // } else if (arr.length === 3) {
     //     console.log("3 boxes");
-    // };    
-    // if (arr.length === 2) {
+    // } else if (arr.length === 2) {
     //     console.log("2 boxes");
-    // }; 
-    // if (arr.length === 1) {
+    // } else if (arr.length === 1) {
     //     console.log("1 box");
     // };
 
@@ -122,17 +138,6 @@ function generatePassword() {
     //     window.location.reload();
     // };
     
-    const refreshBtn = document.getElementById("refreshBtn").addEventListener("click", refreshPage);
-    const doubleCheck = confirm("Are you sure you'd like to refresh? You will lose your current password.");
-    
-    function refreshPage() {
-        if (refreshBtn) {
-            doubleCheck
-            if (doubleCheck === true) {
-                window.location.reload();
-            };
-        };
-    };
 
 
 
