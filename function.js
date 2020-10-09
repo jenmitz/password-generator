@@ -8,18 +8,26 @@ IOCE
 /////////////////////////////////////////////////
 Optional/Bonus functionality:
     Copy to clipboard
-    Refresh
 /////////////////////////////////////////////////
 */  
 
 
 // event listeners to run functions
 document.getElementById("generateBtn").addEventListener("click", generatePassword);
-// document.getElementById("refreshBtn").addEventListener("click", resetForm);
-// document.getElementById("copyBtn").addEventListener("click", copyPW);
+document.getElementById("refreshBtn").addEventListener("click", refresh);
+//document.getElementById("copyBtn").addEventListener("click", copyPW);
 
+
+// refresh page function
+function refresh () { 
+    if ((confirm("Are you sure you'd like to refresh? You will lose your current password.")) === true) {
+        document.location.reload();
+    } else {
+        console.log('cool');
+    };
+};
 // generate password function
-function generatePassword() {
+function generatePassword () {
 
     // input value
     const inputLength = document.getElementById("length").value;
