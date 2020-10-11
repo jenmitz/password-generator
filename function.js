@@ -4,10 +4,15 @@ IOCE
 	Inputs: number from user (8-58), checked boxes representing character types
 	Outputs: randomized password using the parameters the user selects
 	Constraints: n/a
-	Edge cases: n/a
+    Edge cases: n/a
+    
 /////////////////////////////////////////////////
 Optional/Bonus functionality:
-    Copy to clipboard
+    > Copy to clipboard
+
+To Dos:    
+    > Clear password entirely when generate button is clicked, as opposed to adding more characters
+    > Clean up CSS
 /////////////////////////////////////////////////
 */  
 
@@ -15,18 +20,29 @@ Optional/Bonus functionality:
 // event listeners to run functions
 document.getElementById("generateBtn").addEventListener("click", generatePassword);
 document.getElementById("refreshBtn").addEventListener("click", refresh);
-//document.getElementById("copyBtn").addEventListener("click", copyPW);
+document.getElementById("copyBtn").addEventListener("click", copyPW);
 
 
-// refresh page function
+// refresh page 
 function refresh () { 
     if ((confirm("Are you sure you'd like to refresh? You will lose your current password.")) === true) {
         document.location.reload();
-    } else {
-        console.log('cool');
     };
 };
-// generate password function
+
+// copy to clipboard
+function copyPW () {
+    console.log("copyBtn was clicked.")
+    /* *** pseudo code ***
+    1. (error handling) alert "nothing to copy" if clicked but no password has been generated 
+    2. need to target output from password generation
+    3. find a way to get the generated password onto clipboard
+    4. alert "successfully copied!" when clicked after password generation
+    5. (edge case) clicking does not copy, error that makes them unable to copy [assuming password generated and button clicked]
+    */
+};
+
+// generate password
 function generatePassword () {
 
     // input value
@@ -60,7 +76,7 @@ function generatePassword () {
 
     // array that holds randomly generated values
     const values = [];
-            
+
     // if box is checked, push random character to values array
     for (i = 0; i < inputLength; i++) {
         if (numberBoxChecked) {
@@ -78,7 +94,7 @@ function generatePassword () {
     };
     
     // get a random character from "values" array
-    const getRandomIndex = () => {
+    function getRandomIndex () {
         for (i = 0; i < inputLength; i++) {
             const randomIndex = values[Math.floor(Math.random() * values.length)];
             console.log(randomIndex);
@@ -86,7 +102,6 @@ function generatePassword () {
         };
         return;
     }; 
-
     getRandomIndex();
 
 };
