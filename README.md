@@ -10,7 +10,7 @@ This is a password generator that generates a random password depending on the u
 - DRY
 
 ## Progress
-- The refresh and copy buttons are incomplete and do not work
+- The copy button is incomplete and do not work
 
 ## Usage
 1. Enter a number from 5-58, which represents the character length of final password
