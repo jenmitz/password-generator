@@ -33,6 +33,9 @@ function refresh () {
 // copy to clipboard
 function copyPW () {
     console.log("copyBtn was clicked.")
+    var val = document.querySelector("#password");
+    val.select();
+    document.execCommand("copy");
     /* *** pseudo code ***
     1. (error handling) alert "nothing to copy" if clicked but no password has been generated 
     2. need to target output from password generation
@@ -95,13 +98,21 @@ function generatePassword () {
     
     // get a random character from "values" array
     function getRandomIndex () {
+        let password = [];
         for (i = 0; i < inputLength; i++) {
             const randomIndex = values[Math.floor(Math.random() * values.length)];
+            // logs result of generation
             console.log(randomIndex);
-            document.getElementById("password").append(randomIndex);
+            // put random character into array
+            password.push(randomIndex);
+            // marge all values in array together
+            console.log(password.join(''));
+            
         };
-        return;
+        // value inside password box is the random character generated
+        document.getElementById("password").value = randomIndex;
     }; 
     getRandomIndex();
 
 };
+// array join

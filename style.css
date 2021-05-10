@@ -1,22 +1,20 @@
 h1 {
-	font-size: 30px;
-	margin: 0;
-	margin-bottom: -15px;
-	margin-top: 0px;
-	text-align: center;
-}
-h2 {
 	color: #E07942;
 	font-size: 35px;
 	padding-bottom: 10px;
 	padding-top: 15px;
 	text-align: center;
 }
-h4 {
-	text-align: center;
+h2 {
+    font-size: 130%;
 }
 p {
 	text-align: left;
+}
+#buttons {
+    position: absolute;
+    left: 20%;
+    right: 20%;
 }
 #refreshBtn:hover, #copyBtn:hover, #generateBtn:hover {
 	background-color: #ffa56e;
@@ -32,7 +30,6 @@ p {
 	text-align: center;
 	width: 100%;
 }
-
 #refreshBtn, #generateBtn, #copyBtn {
 	background-color: #E07942;
 	color: #fff;
@@ -92,4 +89,7 @@ p {
 	.btn {
 		font-size: 15px;
 	}
+    .container-fluid {
+        
+    }
 }
